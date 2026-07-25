@@ -60,5 +60,12 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Sample.sql" />
+    <Build Include="Table\Address.sql" />
+    <Build Include="Table\book_language.sql" />
+    <Build Include="Table\order_history.sql" />
+    <Build Include="Table\order_line.sql" />
+    <Build Include="Table\order_status.sql" />
+    <Build Include="Table\publisher.sql" />
+    <Build Include="Table\shipping_method.sql" />
   </ItemGroup>
 </Project>
