@@ -7,4 +7,5 @@
 	[city] [varchar](100) NULL,
 	[country_id] [int] NULL,
 	[rowversion] [timestamp] NOT NULL,
+	CONSTRAINT fk_address_country FOREIGN KEY (country_id) REFERENCES country(country_id)
  );
