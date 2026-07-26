@@ -2,6 +2,7 @@
 ## Visual Studio & IDE Local Settings
 ## ==========================================
 .vs/
+.vs/*
 *.user
 *.userosscache
 *.sln.docstates

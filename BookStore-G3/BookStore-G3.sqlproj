@@ -59,7 +59,6 @@
     <Folder Include="Table" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="Table\Sample.sql" />
     <Build Include="Table\Address.sql" />
     <Build Include="Table\book_language.sql" />
     <Build Include="Table\country.sql" />
@@ -71,5 +70,9 @@
     <Build Include="Table\order_status.sql" />
     <Build Include="Table\publisher.sql" />
     <Build Include="Table\shipping_method.sql" />
+    <Build Include="Table\Address_Status.sql" />
+    <Build Include="Table\Author.sql" />
+    <Build Include="Table\Book.sql" />
+    <Build Include="Table\Book_Author.sql" />
   </ItemGroup>
 </Project>
