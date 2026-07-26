@@ -1,0 +1,34 @@
+## ==========================================
+## Visual Studio & IDE Local Settings
+## ==========================================
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+## ==========================================
+## Build & Output Directories
+## ==========================================
+[Bb]in/
+[Ob]bj/
+[Dd]ebug/
+[Rr]elease/
+
+## ==========================================
+## SQL Server Data Tools (SSDT) & Database Projects
+## ==========================================
+# Archivos de metadatos e índices locales de SSDT
+*.dbmdl
+*.jfm
+*.sqlproj.user
+
+# Archivos de despliegue/publicación local con credenciales
+*.publish.xml
+
+## ==========================================
+## Windows / OS Junk
+## ==========================================
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
