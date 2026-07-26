@@ -1,5 +1,7 @@
 ﻿CREATE TABLE publisher(
-	publisher_id int NOT NULL CONSTRAINT [PK_publisher] PRIMARY KEY,
-	publisher_name varchar(400) NULL,
-	[rowversion] timestamp NOT NULL
+	publisher_id INT NOT NULL,
+	publisher_name VARCHAR(400) NULL,
+	[rowversion] timestamp NOT NULL,
+	book_id INT NOT NULL,
+	CONSTRAINT [PK_publisher] PRIMARY KEY (publisher_id)
 );
