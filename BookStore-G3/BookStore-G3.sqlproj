@@ -57,6 +57,7 @@
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="Table" />
+    <Folder Include="StoreProcedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Address.sql" />
@@ -74,5 +75,10 @@
     <Build Include="Table\Author.sql" />
     <Build Include="Table\Book.sql" />
     <Build Include="Table\Book_Author.sql" />
+    <Build Include="StoreProcedures\GetAddressChangesByRowVersion.sql" />
+    <Build Include="StoreProcedures\GetBookChangesByRowVersion.sql" />
+    <Build Include="StoreProcedures\GetCustomerChangesByRowVersion.sql" />
+    <Build Include="StoreProcedures\GetDatabaseRowVersion.sql" />
+    <Build Include="StoreProcedures\GetShippingMethodChangesByRowVersion.sql" />
   </ItemGroup>
 </Project>
