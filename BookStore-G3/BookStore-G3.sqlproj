@@ -58,6 +58,8 @@
     <Folder Include="Properties" />
     <Folder Include="Table" />
     <Folder Include="StoreProcedures" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Data" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Table\Address.sql" />
@@ -80,5 +82,29 @@
     <Build Include="StoreProcedures\GetCustomerChangesByRowVersion.sql" />
     <Build Include="StoreProcedures\GetDatabaseRowVersion.sql" />
     <Build Include="StoreProcedures\GetShippingMethodChangesByRowVersion.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Data\Script.PostDeployment.Author.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.Publisher.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.BookLanguage.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.Book.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.BookAuthor.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.ShippingMethod.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\Data\Script.PostDeployment.OrderStatus.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.Country.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.AddressStatus.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.Customer.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.Address.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.CustomerAddress.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.CusOrder.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.OrderHistory.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.OrderLine.sql" />
   </ItemGroup>
 </Project>
