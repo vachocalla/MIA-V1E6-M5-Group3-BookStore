@@ -76,10 +76,11 @@
     <Build Include="Table\Dim_Address.sql" />
     <Build Include="Staging\Address.sql" />
     <Build Include="StoreProcedures\DW_MergeDimAddress.sql" />
-    <Build Include="Table\Dim_ShippingMethod.sql" />
+    <Build Include="Table\Dim_Shipping.sql" />
     <Build Include="Staging\Shipping.sql" />
-    <Build Include="StoreProcedures\DW_MergeDimShippingMethod.sql" />
+    <Build Include="StoreProcedures\DW_MergeDimShipping.sql" />
     <Build Include="Table\Dim_Date.sql" />
+    <Build Include="Table\Fact_Order_Details.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Data\Script.PostDeployment.PackageConfig.sql" />
