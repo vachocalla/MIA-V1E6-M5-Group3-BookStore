@@ -1,0 +1,40 @@
+﻿MERGE INTO book_language AS Target
+USING (VALUES 
+    (1,'eng','English'),
+    (2,'en-US','United States English'),
+    (3,'fre','French'),
+    (4,'spa','Spanish'),
+    (5,'en-GB','British English'),
+    (6,'mul','Multiple Languages'),
+    (7,'grc','Greek'),
+    (8,'enm','Middle English'),
+    (9,'en-CA','Canadian English'),
+    (10,'ger','German'),
+    (11,'jpn','Japanese'),
+    (12,'ara','Arabic'),
+    (13,'nl','Dutch'),
+    (14,'zho','Chinese'),
+    (15,'lat','Latin'),
+    (16,'por','Portuguese'),
+    (17,'srp','Serbian'),
+    (18,'ita','Italian'),
+    (19,'rus','Russian'),
+    (20,'msa','Malaysian'),
+    (21,'glg','Galician'),
+    (22,'wel','Welsh'),
+    (23,'swe','Swedish'),
+    (24,'nor','Norwegian'),
+    (25,'tur','Turkish'),
+    (26,'gla','Gaelic'),
+    (27,'ale','Aleut')
+) AS Source (language_id, language_code, language_name)
+ON (Target.language_id = Source.language_id)
+
+WHEN MATCHED THEN 
+    UPDATE SET 
+        Target.language_code = Source.language_code,
+        Target.language_name = Source.language_name
+    
+WHEN NOT MATCHED BY TARGET THEN 
+    INSERT (language_id, language_code, language_name) 
+    VALUES (Source.language_id, Source.language_code, Source.language_name);
