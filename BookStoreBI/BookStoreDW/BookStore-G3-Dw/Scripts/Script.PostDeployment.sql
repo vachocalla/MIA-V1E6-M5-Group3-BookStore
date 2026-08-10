@@ -11,3 +11,7 @@ Plantilla de script posterior a la implementación
 */
 :r .\Data\Script.PostDeployment.PackageConfig.sql
 
+:r .\Data\Script.PostDeployment.DimDate.sql
+
+:r .\Data\Script.PostDeployment.PatchDimDate.sql
+

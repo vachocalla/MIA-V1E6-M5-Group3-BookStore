@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="Address"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{7A154C9F-E05E-4889-AE1D-2A9AD53C8FE5}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{CDC75862-0886-4321-B320-BA439F52B171}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -972,25 +972,29 @@ where [refTable].[address_id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="191,42"
+          Size="191.2,41.6"
           Id="Package\Clean Address Staging"
           TopLeft="326.611111111111,186.611111111111" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\GetDatabaseRowVersion"
           TopLeft="324.285714285714,30" />
         <NodeLayout
-          Size="290,42"
+          Size="289.6,41.6"
           Id="Package\Last Row Version Address(PackageConfig)"
           TopLeft="283.753968253968,114.865079365079" />
         <NodeLayout
-          Size="171,42"
+          Size="165.6,41.6"
           Id="Package\Load Address data"
           TopLeft="337.166666666667,264.925166491412" />
         <NodeLayout
-          Size="213,42"
+          Size="212.8,41.6"
           Id="Package\Sync Staging Address Data"
           TopLeft="311.777778916061,428.388888798489" />
+        <NodeLayout
+          Size="236.8,41.6"
+          Id="Package\Update Address Package Config Table"
+          TopLeft="302,347" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
           TopLeft="427.269841269841,72">
@@ -1037,18 +1041,18 @@ where [refTable].[address_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 2]"
-          TopLeft="422.388888888889,228.611111111111">
+          TopLeft="421.088888888889,228.211111111111">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.314055380301"
+              EndConnector="0,36.714055380301"
               Start="0,0"
-              End="0,28.814055380301">
+              End="0,29.214055380301">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,28.814055380301" />
+                    End="0,29.214055380301" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1057,24 +1061,20 @@ where [refTable].[address_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="237,42"
-          Id="Package\Update Address Package Config Table"
-          TopLeft="302,347" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="421.583333333333,306.925166491412">
+          TopLeft="420.183333333334,306.525166491412">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,40.074833508588"
+              EndConnector="0,40.4748335085879"
               Start="0,0"
-              End="0,32.574833508588">
+              End="0,32.9748335085879">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,32.574833508588" />
+                    End="0,32.9748335085879" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1160,7 +1160,9 @@ where [refTable].[address_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1278,7 +1280,7 @@ where [refTable].[address_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1288,7 +1290,7 @@ where [refTable].[address_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

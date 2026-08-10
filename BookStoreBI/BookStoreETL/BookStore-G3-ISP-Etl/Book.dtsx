@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Book"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{EFF44BBE-1C15-4DC9-9B21-F15A820281C4}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{F5354E3C-7FBF-485A-85E4-63CCBFBC6EB3}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -232,13 +232,13 @@
                       externalMetadataColumnId="Package\Carga datos Book\Cargar datos al Stage.Inputs[OLE DB Destination Input].ExternalColumns[book_key]"
                       lineageId="Package\Carga datos Book\Lookup.Outputs[Lookup Match Output].Columns[book_key]" />
                     <inputColumn
-                      refId="Package\Carga datos Book\Cargar datos al Stage.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      refId="Package\Carga datos Book\Cargar datos al Stage.Inputs[OLE DB Destination Input].Columns[author_names]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="400"
-                      cachedName="author_name"
+                      cachedLength="8000"
+                      cachedName="author_names"
                       externalMetadataColumnId="Package\Carga datos Book\Cargar datos al Stage.Inputs[OLE DB Destination Input].ExternalColumns[author_names]"
-                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_name]" />
+                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_names]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -458,6 +458,14 @@
                       cachedName="publisher_name"
                       externalMetadataColumnId="Package\Carga datos Book\Cargar en Dimm_Book.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
                       lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                    <inputColumn
+                      refId="Package\Carga datos Book\Cargar en Dimm_Book.Inputs[OLE DB Destination Input].Columns[author_names]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="author_names"
+                      externalMetadataColumnId="Package\Carga datos Book\Cargar en Dimm_Book.Inputs[OLE DB Destination Input].ExternalColumns[author_names]"
+                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_names]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -852,15 +860,15 @@ where [refTable].[book_id] = ?</property>
                       name="publisher_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_name]"
+                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_names]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
-                      length="400"
-                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_name]"
-                      name="author_name"
+                      externalMetadataColumnId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].ExternalColumns[author_names]"
+                      length="8000"
+                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].Columns[author_names]"
+                      name="author_names"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
@@ -909,11 +917,11 @@ where [refTable].[book_id] = ?</property>
                       length="400"
                       name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Output].ExternalColumns[author_names]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      name="author_name" />
+                      length="8000"
+                      name="author_names" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -973,12 +981,12 @@ where [refTable].[book_id] = ?</property>
                       lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
                       name="publisher_name" />
                     <outputColumn
-                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[author_names]"
                       codePage="1252"
                       dataType="str"
-                      length="400"
-                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[author_name]"
-                      name="author_name" />
+                      length="8000"
+                      lineageId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[author_names]"
+                      name="author_names" />
                     <outputColumn
                       refId="Package\Carga datos Book\Obtiene Book de OLTP.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -1139,12 +1147,12 @@ where [refTable].[book_id] = ?</property>
       DTS:To="Package\Sincromizacion Merge Dimm_Book staging_book" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
@@ -1224,14 +1232,14 @@ where [refTable].[book_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.7999993852776"
+              EndConnector="0,46.799999385277"
               Start="0,0"
-              End="0,39.2999993852776">
+              End="0,39.299999385277">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.2999993852776" />
+                    End="0,39.299999385277" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1242,18 +1250,18 @@ where [refTable].[book_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
-          TopLeft="251.166658789748,346.666664545271">
+          TopLeft="251.166658789747,346.666664545271">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.7999993852774"
+              EndConnector="0,46.7999993852779"
               Start="0,0"
-              End="0,39.2999993852774">
+              End="0,39.2999993852779">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39.2999993852774" />
+                    End="0,39.2999993852779" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1268,26 +1276,26 @@ where [refTable].[book_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.56666507307028,45.9333327246375"
+              EndConnector="-9.56666507306997,45.933332724637"
               Start="0,0"
-              End="-9.56666507307028,38.4333327246375">
+              End="-9.56666507306997,38.433332724637">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.9666663623188" />
+                    End="0,18.9666663623185" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.9666663623188"
-                    Point2="0,22.9666663623188"
-                    Point3="-4,22.9666663623188" />
+                    Point1="0,18.9666663623185"
+                    Point2="0,22.9666663623185"
+                    Point3="-4,22.9666663623185" />
                   <mssgle:LineSegment
-                    End="-5.56666507307028,22.9666663623188" />
+                    End="-5.56666507306997,22.9666663623185" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.56666507307028,22.9666663623188"
-                    Point2="-9.56666507307028,22.9666663623188"
-                    Point3="-9.56666507307028,26.9666663623188" />
+                    Point1="-5.56666507306997,22.9666663623185"
+                    Point2="-9.56666507306997,22.9666663623185"
+                    Point3="-9.56666507306997,26.9666663623185" />
                   <mssgle:LineSegment
-                    End="-9.56666507307028,38.4333327246375" />
+                    End="-9.56666507306997,38.433332724637" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1326,26 +1334,26 @@ where [refTable].[book_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-9.73333479033556,68.4666659012768"
+              EndConnector="-9.73333479033499,68.4666659012765"
               Start="0,0"
-              End="-9.73333479033556,60.9666659012768">
+              End="-9.73333479033499,60.9666659012765">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.2333329506384" />
+                    End="0,30.2333329506382" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.2333329506384"
-                    Point2="0,34.2333329506384"
-                    Point3="-4,34.2333329506384" />
+                    Point1="0,30.2333329506382"
+                    Point2="0,34.2333329506382"
+                    Point3="-4,34.2333329506382" />
                   <mssgle:LineSegment
-                    End="-5.73333479033556,34.2333329506384" />
+                    End="-5.73333479033499,34.2333329506382" />
                   <mssgle:CubicBezierSegment
-                    Point1="-5.73333479033556,34.2333329506384"
-                    Point2="-9.73333479033556,34.2333329506384"
-                    Point3="-9.73333479033556,38.2333329506384" />
+                    Point1="-5.73333479033499,34.2333329506382"
+                    Point2="-9.73333479033499,34.2333329506382"
+                    Point3="-9.73333479033499,38.2333329506382" />
                   <mssgle:LineSegment
-                    End="-9.73333479033556,60.9666659012768" />
+                    End="-9.73333479033499,60.9666659012765" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1355,80 +1363,114 @@ where [refTable].[book_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Carga datos Book.Paths[Lookup No Match Output]"
-          TopLeft="291.366654782991,201.933332218395">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="178.966657879121,83.1999991321564"
-              Start="0,0"
-              End="178.966657879121,75.6999991321564">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.9781814637618" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.9781814637618"
-                    Point2="0,33.9781814637618"
-                    Point3="4,33.9781814637618" />
-                  <mssgle:LineSegment
-                    End="174.966657879121,33.9781814637618" />
-                  <mssgle:CubicBezierSegment
-                    Point1="174.966657879121,33.9781814637618"
-                    Point2="178.966657879121,33.9781814637618"
-                    Point3="178.966657879121,37.9781814637618" />
-                  <mssgle:LineSegment
-                    End="178.966657879121,75.6999991321564" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="33.6769422208106,38.9781814637618,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Carga datos Book.Paths[Lookup Match Output]"
           TopLeft="273.899988116325,201.933332218395">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-91.7999931703015,83.1999991321565"
+              EndConnector="-91.7999931703019,83.199999132157"
               Start="0,0"
-              End="-91.7999931703015,75.6999991321565">
+              End="-91.7999931703019,75.699999132157">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5999995660783" />
+                    End="0,37.5999995660785" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,37.5999995660783"
-                    Point2="0,41.5999995660783"
-                    Point3="-4,41.5999995660783" />
+                    Point1="0,37.5999995660785"
+                    Point2="0,41.5999995660785"
+                    Point3="-4,41.5999995660785" />
                   <mssgle:LineSegment
-                    End="-87.7999931703015,41.5999995660783" />
+                    End="-87.7999931703019,41.5999995660785" />
                   <mssgle:CubicBezierSegment
-                    Point1="-87.7999931703015,41.5999995660783"
-                    Point2="-91.7999931703015,41.5999995660783"
-                    Point3="-91.7999931703015,45.5999995660783" />
+                    Point1="-87.7999931703019,41.5999995660785"
+                    Point2="-91.7999931703019,41.5999995660785"
+                    Point3="-91.7999931703019,45.5999995660785" />
                   <mssgle:LineSegment
-                    End="-91.7999931703015,75.6999991321565" />
+                    End="-91.7999931703019,75.699999132157" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-94.0913833039007,46.5999995660783,96.3827734375,11.609375"
+              BoundingBox="-94.091383303901,46.5999995660785,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Carga datos Book.Paths[Lookup No Match Output]"
+          TopLeft="291.366654782992,201.933332218395">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="178.96665787912,83.199999132157"
+              Start="0,0"
+              End="178.96665787912,75.699999132157">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.978181463762" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.978181463762"
+                    Point2="0,33.978181463762"
+                    Point3="4,33.978181463762" />
+                  <mssgle:LineSegment
+                    End="174.96665787912,33.978181463762" />
+                  <mssgle:CubicBezierSegment
+                    Point1="174.96665787912,33.978181463762"
+                    Point2="178.96665787912,33.978181463762"
+                    Point3="178.96665787912,37.978181463762" />
+                  <mssgle:LineSegment
+                    End="178.96665787912,75.699999132157" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="33.6769422208102,38.978181463762,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga datos Book\Obtiene Book de OLTP">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga datos Book\Cargar en Dimm_Book">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Carga datos Book\Cargar datos al Stage">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Carga datos Book\Lookup">
     <Properties>
@@ -1449,40 +1491,6 @@ where [refTable].[book_id] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga datos Book\Cargar en Dimm_Book">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga datos Book\Obtiene Book de OLTP">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Carga datos Book\Cargar datos al Stage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

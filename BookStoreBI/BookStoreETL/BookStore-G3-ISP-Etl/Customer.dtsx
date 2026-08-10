@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="Customer"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{69D4C6FB-0D34-4C1D-8D0D-3CC3FF69E22F}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{6EFF319B-8D3E-474F-B5FB-D27988F10CE4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -251,6 +251,28 @@
                       lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[country_name]"
                       name="country_name"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      length="401"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[full_name]"
+                      name="full_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[historical_address]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[historical_address]"
+                      length="8000"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[historical_address]"
+                      name="historical_address"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -306,6 +328,18 @@
                       dataType="str"
                       length="200"
                       name="country_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="401"
+                      name="full_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[historical_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      name="historical_address" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -339,6 +373,13 @@
                       length="350"
                       lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[email]"
                       name="email" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="401"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[full_name]"
+                      name="full_name" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[street_name]"
                       codePage="1252"
@@ -374,6 +415,13 @@
                       length="200"
                       lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       name="country_name" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[historical_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8000"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[historical_address]"
+                      name="historical_address" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -533,6 +581,22 @@
                       cachedName="country_name"
                       externalMetadataColumnId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
                       lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[country_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="401"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[full_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].Columns[historical_address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="historical_address"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].ExternalColumns[historical_address]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[historical_address]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -606,6 +670,12 @@
                       refId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].ExternalColumns[modified_date]"
                       dataType="dbTimeStamp"
                       name="modified_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Dim.Inputs[OLE DB Destination Input].ExternalColumns[historical_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="historical_address" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -776,6 +846,22 @@
                       cachedName="customer_key"
                       externalMetadataColumnId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[customer_key]"
                       lineageId="Package\Data Flow Task\Lookup.Outputs[Lookup Match Output].Columns[customer_key]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].Columns[full_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="401"
+                      cachedName="full_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[full_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[full_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].Columns[historical_address]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8000"
+                      cachedName="historical_address"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[historical_address]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[historical_address]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -845,6 +931,12 @@
                       refId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[modified_date]"
                       dataType="dbTimeStamp"
                       name="modified_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Staging.Inputs[OLE DB Destination Input].ExternalColumns[historical_address]"
+                      codePage="1252"
+                      dataType="str"
+                      length="4000"
+                      name="historical_address" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1180,25 +1272,41 @@ where [refTable].[customer_id] = ?</property>
       DTS:To="Package\Syn Dim" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
-<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
-<!--If you manually edit this section and make a mistake, you can delete it. -->
-<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
 <Objects
   Version="8">
-  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
   <Package
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="181.6,41.6"
-          Id="Package\Get Data Row Version"
-          TopLeft="326.666648818388,42.4666663713588" />
+          Size="213.6,43.2"
+          Id="Package\Clean up Staging Customer"
+          TopLeft="309.999983062348,214.933331838714" />
+        <NodeLayout
+          Size="172.8,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="326.666648818388,298.999997920791" />
         <NodeLayout
           Size="204,41.6"
           Id="Package\Get Data Last Row Version"
           TopLeft="317.499982652566,129.999999095996" />
+        <NodeLayout
+          Size="181.6,41.6"
+          Id="Package\Get Data Row Version"
+          TopLeft="326.666648818388,42.4666663713588" />
+        <NodeLayout
+          Size="161.6,41.6"
+          Id="Package\Syn Dim"
+          TopLeft="344.999981150032,469.733330066866" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Update Config"
+          TopLeft="330.833315257398,387.399997306069" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="418.483315735477,84.0666663713588">
@@ -1221,10 +1329,6 @@ where [refTable].[customer_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="213.6,43.2"
-          Id="Package\Clean up Staging Customer"
-          TopLeft="309.999983062348,214.933331838714" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="418.149982857457,171.599999095996">
@@ -1247,10 +1351,6 @@ where [refTable].[customer_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172.8,41.6"
-          Id="Package\Data Flow Task"
-          TopLeft="326.666648818388,298.999997920791" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="414.933315940368,258.133331838714">
@@ -1273,10 +1373,6 @@ where [refTable].[customer_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Update Config"
-          TopLeft="330.833315257398,387.399997306069" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="415.949982037893,340.599997920791">
@@ -1299,10 +1395,6 @@ where [refTable].[customer_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="161.6,41.6"
-          Id="Package\Syn Dim"
-          TopLeft="344.999981150032,469.733330066866" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="422.316648203715,428.999997306069">
@@ -1334,39 +1426,21 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="143.2,41.6"
-          Id="Package\Data Flow Task\Get Customer"
-          TopLeft="350.833314164646,56.3333329415984" />
+          Size="140,41.6"
+          Id="Package\Data Flow Task\Load Staging"
+          TopLeft="225.833320994344,226.199998427033" />
+        <NodeLayout
+          Size="148.8,43.2"
+          Id="Package\Data Flow Task\Load Dim"
+          TopLeft="487.499973364176,231.399998390873" />
         <NodeLayout
           Size="112.8,41.6"
           Id="Package\Data Flow Task\Lookup"
           TopLeft="360.83331361827,137.799999041756" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="419.833313891458,97.9333329415984">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.8666661001576"
-              Start="0,0"
-              End="0,32.3666661001576">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,32.3666661001576" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Data Flow Task\Load Staging"
-          TopLeft="225.833320994344,226.199998427033" />
+          Size="143.2,41.6"
+          Id="Package\Data Flow Task\Get Customer"
+          TopLeft="350.833314164646,56.3333329415984" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup Match Output]"
           TopLeft="417.23331361827,179.399999041756">
@@ -1403,10 +1477,28 @@ where [refTable].[customer_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="148.8,43.2"
-          Id="Package\Data Flow Task\Load Dim"
-          TopLeft="487.499973364176,231.399998390873" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="419.833313891458,97.9333329415984">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.8666661001576"
+              Start="0,0"
+              End="0,32.3666661001576">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.3666661001576" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
           TopLeft="434.699980284937,179.399999041756">
@@ -1439,44 +1531,13 @@ where [refTable].[customer_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="7.79360982086958,26.2363633705486,111.6127734375,11.609375"
+              BoundingBox="7.7936098208695,26.2363633705486,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Get Customer">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Dim_Customer]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Data Flow Task\Load Staging">
     <Properties>
@@ -1500,6 +1561,37 @@ where [refTable].[customer_id] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Dim_Customer]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Get Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

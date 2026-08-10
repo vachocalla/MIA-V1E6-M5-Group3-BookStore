@@ -11,6 +11,7 @@ AS
 		city = sc.city,
 		address_status = sc.address_status,
 		country_name = sc.country_name,
+		historical_address = sc.historical_address,
 		created_date = sc.created_date,
 		modified_date = sc.modified_date
 	FROM [dbo].[Dim_Customer]        dc

@@ -80,10 +80,14 @@
     <Build Include="Staging\Shipping.sql" />
     <Build Include="StoreProcedures\DW_MergeDimShipping.sql" />
     <Build Include="Table\Dim_Date.sql" />
-    <Build Include="Table\Fact_Order_Details.sql" />
+    <Build Include="Table\Fact_Orders.sql" />
+    <Build Include="Staging\Orders.sql" />
+    <Build Include="StoreProcedures\DW_MergeFactOrders.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Data\Script.PostDeployment.PackageConfig.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.DimDate.sql" />
+    <None Include="Scripts\Data\Script.PostDeployment.PatchDimDate.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

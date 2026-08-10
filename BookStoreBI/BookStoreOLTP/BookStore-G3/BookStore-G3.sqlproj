@@ -82,6 +82,7 @@
     <Build Include="StoreProcedures\GetCustomerChangesByRowVersion.sql" />
     <Build Include="StoreProcedures\GetDatabaseRowVersion.sql" />
     <Build Include="StoreProcedures\GetShippingMethodChangesByRowVersion.sql" />
+    <Build Include="StoreProcedures\GetOrdersChangesByRowVersion.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql">
