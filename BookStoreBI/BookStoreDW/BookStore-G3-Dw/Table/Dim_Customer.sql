@@ -11,6 +11,7 @@
 	[city] [varchar](100) NULL,
 	[address_status] [varchar](30) NULL,
 	[country_name] [varchar](200) NULL,
+	[historical_address] [varchar](4000) NULL,
 	[created_date] [datetime] DEFAULT GETDATE(),
 	[modified_date] [datetime] DEFAULT GETDATE(),
 )

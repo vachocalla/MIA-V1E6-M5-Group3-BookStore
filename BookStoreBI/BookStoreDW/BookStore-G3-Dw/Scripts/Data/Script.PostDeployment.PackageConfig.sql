@@ -25,10 +25,18 @@ WHERE NOT EXISTS (
 );
 
 INSERT INTO [dbo].[PackageConfig] ([TableName], [LastRowVersion])
-SELECT 'ShippingMethod', 0
+SELECT 'Shipping', 0
 WHERE NOT EXISTS (
     SELECT 1 
     FROM [dbo].[PackageConfig] 
-    WHERE [TableName] = 'ShippingMethod'
+    WHERE [TableName] = 'Shipping'
 );
 
+
+INSERT INTO [dbo].[PackageConfig] ([TableName], [LastRowVersion])
+SELECT 'Orders', 0
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM [dbo].[PackageConfig] 
+    WHERE [TableName] = 'Orders'
+);
