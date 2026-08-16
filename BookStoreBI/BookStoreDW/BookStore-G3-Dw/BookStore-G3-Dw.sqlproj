@@ -83,6 +83,18 @@
     <Build Include="Table\Fact_Orders.sql" />
     <Build Include="Staging\Orders.sql" />
     <Build Include="StoreProcedures\DW_MergeFactOrders.sql" />
+    <Build Include="StoreProcedures\sp_report_orders_sales.sql" />
+    <Build Include="StoreProcedures\sp_get_books.sql" />
+    <Build Include="StoreProcedures\sp_get_countries.sql" />
+    <Build Include="StoreProcedures\sp_get_customers.sql" />
+    <Build Include="StoreProcedures\sp_get_status.sql" />
+    <Build Include="StoreProcedures\sp_get_years.sql" />
+    <Build Include="StoreProcedures\sp_get_publishers.sql" />
+    <Build Include="StoreProcedures\sp_get_authors.sql" />
+    <Build Include="StoreProcedures\sp_report_sales_by_book.sql" />
+    <Build Include="StoreProcedures\sp_get_months.sql" />
+    <Build Include="StoreProcedures\sp_report_sales_by_client.sql" />
+    <Build Include="StoreProcedures\sp_report_sales_by_country.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\Data\Script.PostDeployment.PackageConfig.sql" />
