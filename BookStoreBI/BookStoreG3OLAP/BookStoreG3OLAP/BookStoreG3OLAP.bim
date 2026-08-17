@@ -1,0 +1,632 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "es-BO",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/ ;BookStoreG3DW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": ".",
+            "database": "BookStoreG3DW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "Username": "home",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Address",
+        "columns": [
+          {
+            "name": "address_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "address_key"
+          },
+          {
+            "name": "address_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "address_id"
+          },
+          {
+            "name": "street_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_name"
+          },
+          {
+            "name": "street_number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_number"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "sourceColumn": "country_name"
+          },
+          {
+            "name": "created_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "created_date"
+          },
+          {
+            "name": "modified_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "modified_date"
+          },
+          {
+            "type": "calculated",
+            "name": "Direccion",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "CONCATENATE(CONCATENATE([street_name],\" \"),[street_number])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Dim_Address = Source{[Schema=\"dbo\",Item=\"Dim_Address\"]}[Data]",
+                "in",
+                "    dbo_Dim_Address"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Book",
+        "columns": [
+          {
+            "name": "book_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_key"
+          },
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_id"
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "title"
+          },
+          {
+            "name": "isbn13",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "isbn13"
+          },
+          {
+            "name": "language_code",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "language_code"
+          },
+          {
+            "name": "language_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "language_name"
+          },
+          {
+            "name": "num_pages",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "num_pages"
+          },
+          {
+            "name": "publication_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "publication_date"
+          },
+          {
+            "name": "publisher_name",
+            "dataType": "string",
+            "sourceColumn": "publisher_name"
+          },
+          {
+            "name": "author_names",
+            "dataType": "string",
+            "sourceColumn": "author_names"
+          },
+          {
+            "name": "created_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "created_date"
+          },
+          {
+            "name": "modified_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "modified_date"
+          },
+          {
+            "type": "calculated",
+            "name": "Titulo y Año Publicacion",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "CONCATENATE(CONCATENATE([title],\" \"),YEAR([publication_date]))"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Dim_Book = Source{[Schema=\"dbo\",Item=\"Dim_Book\"]}[Data]",
+                "in",
+                "    dbo_Dim_Book"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "columns": [
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_key"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_id"
+          },
+          {
+            "name": "first_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "first_name"
+          },
+          {
+            "name": "last_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "last_name"
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "email"
+          },
+          {
+            "name": "full_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "full_name"
+          },
+          {
+            "name": "street_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_name"
+          },
+          {
+            "name": "street_number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_number"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "city"
+          },
+          {
+            "name": "address_status",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "address_status"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "country_name"
+          },
+          {
+            "name": "historical_address",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "historical_address"
+          },
+          {
+            "name": "created_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "created_date"
+          },
+          {
+            "name": "modified_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "modified_date"
+          },
+          {
+            "type": "calculated",
+            "name": "Nombre Completo",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": "CONCATENATE(CONCATENATE([first_name],\" \"),[last_name])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Dim_Customer = Source{[Schema=\"dbo\",Item=\"Dim_Customer\"]}[Data]",
+                "in",
+                "    dbo_Dim_Customer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "date_key"
+          },
+          {
+            "name": "full_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "full_date"
+          },
+          {
+            "name": "calendar_year",
+            "dataType": "int64",
+            "sourceColumn": "calendar_year"
+          },
+          {
+            "name": "calendar_semester",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "calendar_semester"
+          },
+          {
+            "name": "calendar_quarter",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "calendar_quarter"
+          },
+          {
+            "name": "month_number_of_year",
+            "dataType": "int64",
+            "sourceColumn": "month_number_of_year"
+          },
+          {
+            "name": "month_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "month_name"
+          },
+          {
+            "name": "week_number_of_year",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "week_number_of_year"
+          },
+          {
+            "name": "day_number_of_year",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "day_number_of_year"
+          },
+          {
+            "name": "day_number_of_month",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "day_number_of_month"
+          },
+          {
+            "name": "day_number_of_week",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "day_number_of_week"
+          },
+          {
+            "name": "day_name_of_week",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "day_name_of_week"
+          },
+          {
+            "name": "is_weekend",
+            "dataType": "boolean",
+            "isHidden": true,
+            "sourceColumn": "is_weekend"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Dim_Date = Source{[Schema=\"dbo\",Item=\"Dim_Date\"]}[Data]",
+                "in",
+                "    dbo_Dim_Date"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Shipping",
+        "columns": [
+          {
+            "name": "shipping_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "shipping_key"
+          },
+          {
+            "name": "method_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "method_id"
+          },
+          {
+            "name": "method_name",
+            "dataType": "string",
+            "sourceColumn": "method_name"
+          },
+          {
+            "name": "cost",
+            "dataType": "double",
+            "sourceColumn": "cost"
+          },
+          {
+            "name": "created_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "created_date"
+          },
+          {
+            "name": "modified_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "modified_date"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Dim_Shipping = Source{[Schema=\"dbo\",Item=\"Dim_Shipping\"]}[Data]",
+                "in",
+                "    dbo_Dim_Shipping"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Orders",
+        "columns": [
+          {
+            "name": "order_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "order_id"
+          },
+          {
+            "name": "line_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "line_id"
+          },
+          {
+            "name": "book_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_key"
+          },
+          {
+            "name": "customer_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_key"
+          },
+          {
+            "name": "date_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "date_key"
+          },
+          {
+            "name": "shipping_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "shipping_key"
+          },
+          {
+            "name": "address_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "address_key"
+          },
+          {
+            "name": "order_date_time",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "order_date_time"
+          },
+          {
+            "name": "status_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "status_date"
+          },
+          {
+            "name": "status_value",
+            "dataType": "string",
+            "sourceColumn": "status_value"
+          },
+          {
+            "name": "price",
+            "dataType": "double",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "quantity",
+            "dataType": "int64",
+            "sourceColumn": "quantity"
+          },
+          {
+            "name": "subtotal",
+            "dataType": "double",
+            "isHidden": true,
+            "sourceColumn": "subtotal"
+          },
+          {
+            "name": "etl_load_date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "etl_load_date"
+          },
+          {
+            "type": "calculated",
+            "name": "Total",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "[price]*[quantity]"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/ ;BookStoreG3DW\",",
+                "    dbo_Fact_Orders = Source{[Schema=\"dbo\",Item=\"Fact_Orders\"]}[Data]",
+                "in",
+                "    dbo_Fact_Orders"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Ventas",
+            "expression": " SUM(Orders[Total])"
+          },
+          {
+            "name": "Total U. Vendidas",
+            "expression": " SUM(Orders[quantity])"
+          },
+          {
+            "name": "Nro. Pedidos",
+            "expression": " DISTINCTCOUNT(Orders[order_id])"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "29e06b0e-101c-4390-b3fc-1fe7f58e1882",
+        "fromTable": "Orders",
+        "fromColumn": "address_key",
+        "toTable": "Address",
+        "toColumn": "address_key"
+      },
+      {
+        "name": "88b11fd3-1cd6-4b85-a8ad-5a6dd7759fae",
+        "fromTable": "Orders",
+        "fromColumn": "book_key",
+        "toTable": "Book",
+        "toColumn": "book_key"
+      },
+      {
+        "name": "ca435d72-2356-413b-bd87-ef818145e3c5",
+        "fromTable": "Orders",
+        "fromColumn": "customer_key",
+        "toTable": "Customer",
+        "toColumn": "customer_key"
+      },
+      {
+        "name": "6d950589-c9b6-4772-8c78-25ddc075f633",
+        "fromTable": "Orders",
+        "fromColumn": "date_key",
+        "toTable": "Date",
+        "toColumn": "date_key"
+      },
+      {
+        "name": "14d52184-bea0-4ff8-845a-433dba80e6ec",
+        "fromTable": "Orders",
+        "fromColumn": "shipping_key",
+        "toTable": "Shipping",
+        "toColumn": "shipping_key"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
